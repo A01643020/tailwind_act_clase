@@ -4,23 +4,23 @@ const url = require("node:url");
 require("dotenv").config();
 
 
-async function miFuncionOpenAi(InputValue) {
-    const endpoint_ai = "https://api.openai.com/v1/chat/completions";
-    console.log("Clave: " + API_KEY)
-    const opciones = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: API_KEY,
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: "" + InputValue }],
-        }),
-    };
+async function OpenAi_FunFact(InputValue, API_KEY) {
+  const endpoint_ai = "https://api.openai.com/v1/chat/completions";
+  console.log("Clave: " + process.env.API_KEY)
+  const opciones = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: API_KEY,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: "puedes darme un fun fact (manteniendo la respuesta breve y atractiva) sobre el drama de los artistas o sobre polemicas sobre el siguiente album: "}],
+    }),
+  };
 
-    const res = await fetch(endpoint_ai, opciones);
-    return await res.json().then((data) => data.choices[0].message.content);
+  const res = await fetch(endpoint_ai, opciones);
+  return await res.json().then((data) => data.choices[0].message.content);
 }
 
 //Spotify
@@ -41,7 +41,7 @@ async function getSpotifyToken(client_id, client_secret) {
 }
 
 async function albumSearch(query) {
-    const token = await getSpotifyToken(creds.client_id, creds.client_secret);
+    const token = await getSpotifyToken(process.env.CLIENT_ID, process.env.CLIENT_SECTRET);
     const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=album`, {
         method: "GET",
         headers: {
@@ -82,3 +82,4 @@ const port = 3000;
 server.listen(port, () => {
     console.log(`Servidor web inicializado: http://localhost:${port}/`)
 });
+

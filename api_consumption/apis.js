@@ -4,14 +4,14 @@ const url = require("node:url");
 require("dotenv").config();
 
 
-async function OpenAi_FunFact(InputValue, API_KEY) {
+async function OpenAi_FunFact(InputValue) {
   const endpoint_ai = "https://api.openai.com/v1/chat/completions";
   console.log("Clave: " + process.env.API_KEY)
   const opciones = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: API_KEY,
+      Authorization: process.env.API_KEY,
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",

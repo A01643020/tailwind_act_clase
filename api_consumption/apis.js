@@ -1,30 +1,27 @@
 const http = require("node:http");
 const querystring = require("node:querystring");
 const url = require("node:url");
-const creds = require("./credentials.js")
+require("dotenv").config();
 
 
 async function miFuncionOpenAi(InputValue) {
     const endpoint_ai = "https://api.openai.com/v1/chat/completions";
     console.log("Clave: " + API_KEY)
     const opciones = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: API_KEY,
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: "" + InputValue }],
-      }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: API_KEY,
+        },
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: "" + InputValue }],
+        }),
     };
-  
+
     const res = await fetch(endpoint_ai, opciones);
     return await res.json().then((data) => data.choices[0].message.content);
-  }
-
-
-
+}
 
 //Spotify
 
@@ -44,34 +41,33 @@ async function getSpotifyToken(client_id, client_secret) {
 }
 
 async function albumSearch(query) {
-  const token = await getSpotifyToken(creds.client_id, creds.client_secret);
-  const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=album`,
-    {
+    const token = await getSpotifyToken(creds.client_id, creds.client_secret);
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=album`, {
         method: "GET",
         headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
         },
     });
 
-  const data = await response.json();
-  return data.albums.items;
+    const data = await response.json();
+    return data.albums.items;
 }
 
 funcionGiphy();
 
-async function funcionGiphy(image){
-  const API_KEY = "uDc39s1aZ35nLJtv2S3TD16mLNrceKNS"
-  const endpoint_giphy = "https://api.giphy.com/v1/gifs/search?"
-  const options = {
-    api_key: API_KEY, 
-    q: "perro"
-  }
-  const res = await fetch(endpoint_giphy + new URLSearchParams(options));
-  const data = await res.json();
-  let random = Math.floor(Math.random()*10)
-  console.log(random)
-  console.log(data.data[random].images.original.url)
+async function funcionGiphy(image) {
+    const API_KEY = "uDc39s1aZ35nLJtv2S3TD16mLNrceKNS"
+    const endpoint_giphy = "https://api.giphy.com/v1/gifs/search?"
+    const options = {
+        api_key: API_KEY,
+        q: "perro"
+    }
+    const res = await fetch(endpoint_giphy + new URLSearchParams(options));
+    const data = await res.json();
+    let random = Math.floor(Math.random() * 10)
+    console.log(random)
+    console.log(data.data[random].images.original.url)
 }
 
 

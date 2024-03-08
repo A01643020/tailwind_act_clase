@@ -58,7 +58,25 @@ async function albumSearch(query) {
   return data.albums.items;
 }
 
-const server = http.server((solicitud, respuesta) => {
+funcionGiphy();
+
+async function funcionGiphy(image){
+  const API_KEY = "uDc39s1aZ35nLJtv2S3TD16mLNrceKNS"
+  const endpoint_giphy = "https://api.giphy.com/v1/gifs/search?"
+  const options = {
+    api_key: API_KEY, 
+    q: "perro"
+  }
+  const res = await fetch(endpoint_giphy + new URLSearchParams(options));
+  const data = await res.json();
+  let random = Math.floor(Math.random()*10)
+  console.log(random)
+  console.log(data.data[random].images.original.url)
+}
+
+
+
+const server = http.createServer((funcionGiphy, respuesta) => {
     respuesta.statusCode = 200;
     respuesta.setHeader('Content-Type', 'text/plain');
     respuesta.end('Hola Mundo :)\n');
@@ -68,6 +86,3 @@ const port = 3000;
 server.listen(port, () => {
     console.log(`Servidor web inicializado: http://localhost:${port}/`)
 });
-
-// console.log(await albumSearch("Redbone"));
-

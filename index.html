@@ -1,116 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutorial: NodeJS + Spotify + OpenAI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="/app.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      h1 {
-        font-family: "Roboto Slab", serif;
-      }
-      body {
-        font-family: "Roboto", sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="max-w-3xl mx-auto pt-10 px-4">
-      <h1 class="text-3xl font-bold pb-2">La Web, HTTP y APIs</h1>
-      <p class="text-m">
-        La inauguración del internet en 1991 abrió las puertas para el periodo
-        más avanzado tecnológicamente de la sociedad. Hoy en día, todo está
-        conectado: desde los relojes inteligentes que te pueden notificar de
-        llamadas hasta tu refrigerador. ¿Pero cómo es que se pueden comunicar
-        todos estos dispositivos entre sí? ¿Y cómo se conectan a la 'nube' que
-        te puede mostrar todo en una página web? ¿Cómo podríamos hacerlo
-        nosotros mismos?<br /><br />
-        Para empezar, debemos aprender a hablar el lenguaje de la web. Los
-        navegadores, dispositivos Internet of Things, e incluso los juegos hacen
-        muchas de sus comunicaciones con el internet con HTTP (Hypertext
-        Transfer Protocol). HTTP, en su forma más simple, es una manera de que
-        un cliente (el navegador, dispositivo o programa) pida un recurso, sea
-        una página web, video o información, a un servidor (la 'nube'). Estas
-        peticiones por información consisten de varios elementos: un método, que
-        representa qué quiere hacer con la información el cliente; Un camino,
-        que representa dónde está lo que el cliente quiere obtener, la versión
-        de HTTP usada, y los encabezados, que representan información adicional
-        como autorización, información sobre el cliente, o las cookies.
-        <br /><br />
-        Por ahora lo más importante es el método y el camino. Existen varios
-        métodos, y para este tutorial los más importantes son los GET y POST.
-        GET representa que queremos obtener información, sea una página HTML o
-        datos. POST significa que queremos alterar datos, sea actualizar
-        información o mandar credenciales de login.<br /><br />
-        Las APIs, entonces, son una manera de permitir que dos o más programas
-        se puedan comunicar entre sí. Usan el protocolo HTTP para transferir
-        datos y ponerse de acuerdo. De esta manera, podemos unir dos servicios o
-        plataformas que normalmente no se podrían comunicar. Las Application
-        Programming Interface son las que permiten que puedas registrarte en un
-        sitio web con Google o Twitter, que puedas acceder a tu cuenta bancaria
-        desde tu celular, y sí, monitorear la temperatura del refrigerador desde
-        el otro lado del mundo.
-      </p>
-      <h1 class="text-3xl font-bold pt-10 pb-2">Node.js y Javascript</h1>
-      <p class="text-m">
-        En este tutorial vamos a aprender cómo utilizar una API para
-        comunicarnos con otros programas, como Spotify. Para ello, utilizaremos
-        el lenguaje de programación Javascript. Javascript se desarrolló como
-        parte de la web y es el lenguaje que se usa en las páginas: todos los
-        navegadores son capaces de entender y ejecutar este código. Sin embargo,
-        normalmente sólo se usa en el contexto del cliente, los navegadores son
-        los que corren el código. En este tutorial utilizaremos Javascript en el
-        servidor para darle la información a visitantes de nuestro sitio de
-        APIs. Para ello, utilizaremos Node.js, un programa que nos permite
-        ejecutar Javascript sin un navegador. <br /><br />
-        Para instalarlo, basta con navegar a https://nodejs.org/en y descargar
-        la versión LTS (Long Term Support). Esta versión es la más segura y
-        tendrá la mayor información disponible.
-      </p>
-          <div id="code-block-fecth">
-            <h1 class="text-3xl font-bold pt-10 pb-2">Servidor básico con node:http</h1>
-            <p class="text-m">
-              HTTP es un protocolo de comunicación que permite la transferencia de
-              datos en la World Wide Web. Funciona siguiendo un modelo
-              cliente-servidor, donde un cliente (como un navegador web) envía una
-              solicitud HTTP a un servidor y espera una respuesta. Cuando un cliente
-              desea acceder a un recurso (como una página web) que está alojado en un
-              servidor, el cliente envía una solicitud HTTP al servidor. El servidor
-              procesa la solicitud y envía una respuesta HTTP de vuelta al cliente,
-              generalmente con el recurso solicitado. A continuación te mostramos
-              cómo:
-              <!-- CODE SNIPPET -->
-              </p>
-              <p class="text-m">
-                  Node. js pertenece al paradigma de naturaleza asíncrona y basado en eventos. La aplicación sigue ejecutándose mientras espera solicitudes entrantes Esto significa que Node.js no bloquea el hilo principal de ejecución mientras espera que ocurran las operaciones de entrada/salida (E/S) como la lectura de archivos, las solicitudes de red, etc.
-      Por ejemplo, el método .createServer es un módulo de http que recibe una función callback con los parámetros de las APIs estableciendo 200 como la respuesta por defecto OK. Además se le asigna un puerto en este caso fue el 3000 y se llama al método listen del objeto server que escucha las solicitudes dentro del puerto e imprime en la consola la respuesta. 
-              </p>
-            </p>
-          </div>
 
-    </main>
-    <footer>
-      <div class="pb-5 pt-8 text-center">
-        <span class="text-xs text-slate-700"
-          >Victor Quintana, Luz Hernández y Jessica Guizado</span
-        >
-      </div>
-    </footer>
-    <div id="code-block-1"></div>
-    <div id="code-block-fecth"></div>
-    <!-- <div class="flex h-screen p-5">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial: NodeJS + Spotify + OpenAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="/app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    h1 {
+      font-family: "Roboto Slab", serif;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="max-w-3xl mx-auto pt-10 px-4">
+    <h1 class="text-3xl font-bold pb-2">La Web, HTTP y APIs</h1>
+    <p class="text-m">
+      La inauguración del internet en 1991 abrió las puertas para el periodo
+      más avanzado tecnológicamente de la sociedad. Hoy en día, todo está
+      conectado: desde los relojes inteligentes que te pueden notificar de
+      llamadas hasta tu refrigerador. ¿Pero cómo es que se pueden comunicar
+      todos estos dispositivos entre sí? ¿Y cómo se conectan a la 'nube' que
+      te puede mostrar todo en una página web? ¿Cómo podríamos hacerlo
+      nosotros mismos?<br /><br />
+      Para empezar, debemos aprender a hablar el lenguaje de la web. Los
+      navegadores, dispositivos Internet of Things, e incluso los juegos hacen
+      muchas de sus comunicaciones con el internet con HTTP (Hypertext
+      Transfer Protocol). HTTP, en su forma más simple, es una manera de que
+      un cliente (el navegador, dispositivo o programa) pida un recurso, sea
+      una página web, video o información, a un servidor (la 'nube'). Estas
+      peticiones por información consisten de varios elementos: un método, que
+      representa qué quiere hacer con la información el cliente; Un camino,
+      que representa dónde está lo que el cliente quiere obtener, la versión
+      de HTTP usada, y los encabezados, que representan información adicional
+      como autorización, información sobre el cliente, o las cookies.
+      <br /><br />
+      Por ahora lo más importante es el método y el camino. Existen varios
+      métodos, y para este tutorial los más importantes son los GET y POST.
+      GET representa que queremos obtener información, sea una página HTML o
+      datos. POST significa que queremos alterar datos, sea actualizar
+      información o mandar credenciales de login.<br /><br />
+      Las APIs, entonces, son una manera de permitir que dos o más programas
+      se puedan comunicar entre sí. Usan el protocolo HTTP para transferir
+      datos y ponerse de acuerdo. De esta manera, podemos unir dos servicios o
+      plataformas que normalmente no se podrían comunicar. Las Application
+      Programming Interface son las que permiten que puedas registrarte en un
+      sitio web con Google o Twitter, que puedas acceder a tu cuenta bancaria
+      desde tu celular, y sí, monitorear la temperatura del refrigerador desde
+      el otro lado del mundo.
+    </p>
+    <h1 class="text-3xl font-bold pt-10 pb-2">Node.js y Javascript</h1>
+    <p class="text-m">
+      En este tutorial vamos a aprender cómo utilizar una API para
+      comunicarnos con otros programas, como Spotify. Para ello, utilizaremos
+      el lenguaje de programación Javascript. Javascript se desarrolló como
+      parte de la web y es el lenguaje que se usa en las páginas: todos los
+      navegadores son capaces de entender y ejecutar este código. Sin embargo,
+      normalmente sólo se usa en el contexto del cliente, los navegadores son
+      los que corren el código. En este tutorial utilizaremos Javascript en el
+      servidor para darle la información a visitantes de nuestro sitio de
+      APIs. Para ello, utilizaremos Node.js, un programa que nos permite
+      ejecutar Javascript sin un navegador. <br /><br />
+      Para instalarlo, basta con navegar a https://nodejs.org/en y descargar
+      la versión LTS (Long Term Support). Esta versión es la más segura y
+      tendrá la mayor información disponible.
+    </p>
+
+    <!-- SERVER   HTTP -->
+    <div id="code-block-server">
+      <h1 class="text-3xl font-bold pt-10 pb-2">Servidor básico con node:http</h1>
+      <p class="text-m">
+        HTTP es un protocolo de comunicación que permite la transferencia de
+        datos en la World Wide Web. Funciona siguiendo un modelo
+        cliente-servidor, donde un cliente (como un navegador web) envía una
+        solicitud HTTP a un servidor y espera una respuesta. Cuando un cliente
+        desea acceder a un recurso (como una página web) que está alojado en un
+        servidor, el cliente envía una solicitud HTTP al servidor. El servidor
+        procesa la solicitud y envía una respuesta HTTP de vuelta al cliente,
+        generalmente con el recurso solicitado. A continuación te mostramos
+        cómo:
+        <!-- CODE SNIPPET -->
+      </p>
+      <p class="text-m">
+        Node. js pertenece al paradigma de naturaleza asíncrona y basado en eventos. La aplicación sigue ejecutándose
+        mientras espera solicitudes entrantes Esto significa que Node.js no bloquea el hilo principal de ejecución
+        mientras espera que ocurran las operaciones de entrada/salida (E/S) como la lectura de archivos, las solicitudes
+        de red, etc.
+        Por ejemplo, el método .createServer es un módulo de http que recibe una función callback con los parámetros de
+        las APIs estableciendo 200 como la respuesta por defecto OK. Además se le asigna un puerto en este caso fue el
+        3000 y se llama al método listen del objeto server que escucha las solicitudes dentro del puerto e imprime en la
+        consola la respuesta.
+      </p>
+      </p>
+    </div>
+    <div id="code-block-fetch">
+      <h1 class="text-3xl font-bold pt-10 pb-2">Consumo de APIs con fetch</h1>
+      <p class="text-m">
+        Al utilizar <strong><em>fetch</em></strong> hay varios métodos posibles, pero por el momento analizaremos los
+        siguientes dos:
+      <ul>
+        <li>- GET</li>
+        <li>- POST</li>
+      </ul>
+      A continuación te explicamos cada uno con ejemplos.</p>
+
+      <p class="mt-4"><strong>Dato rápido:</strong></p>
+
+
+      <p>Sobre el término <em>“Cacheable”</em></p>
+
+      <p>Se refiere a la capacidad de almacenar temporalmente datos en la memoria caché para su uso futuro. Cuando una
+        solicitud es "cacheable", significa que el navegador o un servidor puede guardar una copia de la respuesta para
+        ser reutilizada si se hace una solicitud idéntica en el futuro. Esto mejora la velocidad de carga de las páginas
+        web al reducir la necesidad de enviar solicitudes al servidor repetidamente. Sin embargo, no todas las
+        solicitudes son cacheables, ya que algunas pueden contener datos sensibles o necesitan actualizarse
+        constantemente.
+      </p>
+
+      <p class="mt-4"><strong>Método POST:</strong></p>
+
+      <p>
+        Se utiliza para enviar datos al servidor para su procesamiento. Los parámetros de la solicitud POST se envían en
+        el cuerpo (body) de la solicitud, lo que los hace invisibles en la URL y más seguros para datos sensibles.
+        Esta característica lo convierte en la opción preferida para enviar información confidencial, como datos de
+        inicio de sesión o detalles de tarjetas de crédito. Además, a diferencia de GET, POST no tiene restricciones en
+        cuanto a la longitud de los datos que se pueden enviar, lo que lo hace ideal para transmitir grandes cantidades
+        de información. Aunque las solicitudes POST no son cacheables por defecto, ofrecen un nivel adicional de
+        seguridad y privacidad al proteger los datos del usuario de la exposición no deseada.
+      </p>
+
+      <p class="mt-4">Ejemplos</p>
+
+      <p class="mt-4 font-bold">Conseguir el Token para Spotify</p>
+      <p>Para poder utilizar el API de Spotify, dado que nos fue asignado el endpoint de álbum, primero observamos que
+        tiene un método POST(información tomada de la documentación del manejo de la API) para traer el token requerido
+        por la API. Este token es unico y se refresca frecuentemente por lo que tener una función que lo traiga cada que
+        se ejecuta el evento es necesario.
+      </p>
+
+
+      <p class="mt-4 font-bold">Enviar una prompt a OpenAI Chat GPT</p>
+
+      <p>
+        La función toma una clave de autenticación y un mensaje de entrada opcional. Este mensaje se envía al servidor
+        de
+        OpenAI, se procesa y devuelve una respuesta. La respuesta se extrae de la solicitud y se devuelve como resultado
+        de la función. Esta función es para obtener fun facts.</p>
+
+
+
+      <p class="font-bold mt-4">Método GET:</p>
+
+      <p>
+        Es una solicitud de lectura utilizada para obtener recursos del servidor. Al utilizar GET, los parámetros de la
+        solicitud son codificados en la URL, lo que los hace visibles en la barra de direcciones del navegador y en los
+        registros del servidor.
+      </p>
+      <p class="mt-2"> Este método es útil para s olicitar datos no sensibles, como consultas de búsqueda o solicitudes
+        de páginas web
+        estáticas. Además, debido a su naturaleza de "lectura", las solicitudes GET son cacheables por el navegador y
+        por
+        servidores proxy, lo que puede mejorar el rendimiento de la aplicación al almacenar en caché las respuestas para
+        futuras solicitudes idénticas. Sin embargo, debido a que los datos se incluyen en la URL, el método GET no es
+        adecuado para enviar datos sensibles, como contraseñas o información financiera, ya que podrían quedar expuestos
+        y
+        comprometer la seguridad de la aplicación.</p>
+
+      <p class="mt-4">Ejemplo</p>
+
+      <p class="mt-4 font-bold">Buscar un álbum en Spotify</p>
+      Una vez que hayas obtenido el token, podrás completar los parámetros necesarios del método GET al incluir las
+      credenciales exigidas por Spotify. Según la documentación, estas credenciales son el cliente_id y el
+      client_secret.
+
+      </p>
+    </div>
+
+  </main>
+  <footer>
+    <div class="pb-5 pt-8 text-center">
+      <span class="text-xs text-slate-700">Victor Quintana, Luz Hernández y Jessica Guizado</span>
+    </div>
+  </footer>
+  <div id="code-block-1"></div>
+  <div id="code-block-server"></div>
+  <div id="code-block-fetch"></div>
+  <!-- <div class="flex h-screen p-5">
         <div class="group relative my-auto">
             <pre class="relative max-w-full overflow-hidden rounded-xl bg-slate-800 p-5 hover:overflow-scroll hover:ease-in-out"><code class=" text-slate-100">async function foo() {
     const req = await fetch("https://example.org?query=hello+world");
@@ -126,5 +214,6 @@
         </div>
     </div> -->
 
-  </body>
+</body>
+
 </html>

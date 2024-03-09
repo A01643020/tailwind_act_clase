@@ -10,9 +10,66 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
     <script src="/app.js"></script>
-		
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: 'Roboto Slab', serif;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
 <body>
+    <main class="max-w-3xl mx-auto pt-10 px-4">
+        <h1 class="text-3xl font-bold pb-2">La Web, HTTP y APIs</h1>
+        <p class="text-m">La inauguración del internet en 1991 abrió las puertas para el periodo más
+            avanzado tecnológicamente de la sociedad. Hoy en día, todo está conectado: desde los 
+            relojes inteligentes que te pueden notificar de llamadas hasta tu refrigerador. 
+            ¿Pero cómo es que se pueden comunicar todos estos dispositivos entre sí? 
+            ¿Y cómo se conectan a la 'nube' que te puede mostrar todo en una página web? 
+            ¿Cómo podríamos hacerlo nosotros mismos?<br><br>
+            Para empezar, debemos aprender a hablar el lenguaje de la web. Los navegadores,
+            dispositivos Internet of Things, e incluso los juegos hacen muchas de sus comunicaciones
+            con el internet con HTTP (Hypertext Transfer Protocol). HTTP, en su forma más simple,
+            es una manera de que un cliente (el navegador, dispositivo o programa) pida un recurso,
+            sea una página web, video o información, a un servidor (la 'nube'). Estas peticiones por
+            información consisten de varios elementos: un método, que representa qué quiere hacer
+            con la información el cliente; Un camino, que representa dónde está lo que el cliente 
+            quiere obtener, la versión de HTTP usada, y los encabezados, que representan información 
+            adicional como autorización, información sobre el cliente, o las cookies. <br><br>
+            Por ahora lo más importante es el método y el camino. Existen varios métodos,
+            y para este tutorial los más importantes son los GET y POST. GET representa que queremos
+            obtener información, sea una página HTML o datos. POST significa que queremos alterar
+            datos, sea actualizar información o mandar credenciales de login.<br><br>
+            Las APIs, entonces, son una manera de permitir que dos o más programas se puedan
+            comunicar entre sí. Usan el protocolo HTTP para transferir datos y ponerse de acuerdo.
+            De esta manera, podemos unir dos servicios o plataformas que normalmente no se podrían
+            comunicar. Las Application Programming Interface son las que permiten que puedas
+            registrarte en un sitio web con Google o Twitter, que puedas acceder a tu cuenta
+            bancaria desde tu celular, y sí, monitorear la temperatura del refrigerador desde
+            el otro lado del mundo.
+        </p>
+        <h1 class="text-3xl font-bold pt-10 pb-2">Node.js y Javascript</h1>
+        <p class="text-m">En este tutorial vamos a aprender cómo utilizar una API para comunicarnos
+            con otros programas, como Spotify. Para ello, utilizaremos el lenguaje de programación
+            Javascript. Javascript se desarrolló como parte de la web y es el lenguaje que se usa
+            en las páginas: todos los navegadores son capaces de entender y ejecutar este código.
+            Sin embargo, normalmente sólo se usa en el contexto del cliente, los navegadores son
+            los que corren el código. En este tutorial utilizaremos Javascript en el servidor para
+            darle la información a visitantes de nuestro sitio de APIs. Para ello, utilizaremos
+            Node.js, un programa que nos permite ejecutar Javascript sin un navegador. <br><br>
+            Para instalarlo, basta con navegar a https://nodejs.org/en y descargar la versión LTS
+            (Long Term Support). Esta versión es la más segura y tendrá la mayor información disponible.
+        </p>
+    </main>
+    <footer>
+        <div class="pb-5 pt-8 text-center">
+            <span class="text-xs text-slate-700">Victor Quintana, Luz Hernández y Jessica Guizado</span>
+        </div>
+    </footer>
     <div id="code-block-1"></div>
     <!-- <div class="flex h-screen p-5">
         <div class="group relative my-auto">

@@ -80,7 +80,7 @@
         </p>
 
         <!-- SERVER   HTTP -->
-        <div id="code-block-server">
+        <div>
             <h1 class="text-3xl font-bold pt-10 pb-2">Servidor básico con node:http</h1>
             <p class="text-m">
                 HTTP es un protocolo de comunicación que permite la transferencia de
@@ -93,6 +93,7 @@
                 generalmente con el recurso solicitado. A continuación te mostramos
                 cómo:
                 <!-- CODE SNIPPET -->
+                <div class="code-block" data-file="server.js"></div>
             </p>
             <p class="text-m">
                 Node. js pertenece al paradigma de naturaleza asíncrona y basado en eventos. La aplicación sigue
@@ -113,9 +114,9 @@
             </p>
         </div>
         <!-- API CONSUMPTION -->
-        <div id="code-block-fetch">
+        <div>
             <h1 class="text-3xl font-bold pt-10 pb-2">Consumo de APIs con fetch</h1>
-            <p class="text-base">
+            <p class="text-m">
                 Al utilizar <strong><em>fetch</em></strong> hay varios métodos posibles, pero por el momento
                 analizaremos los
                 siguientes dos:
@@ -162,6 +163,7 @@
             <p class="mt-4">Ejemplos</p>
 
             <p class="mt-4 font-bold">Conseguir el Token para Spotify</p>
+            <div class="code-block" data-file="fetchSpotifyToken.js"></div>
             <p>Para poder utilizar el API de Spotify, dado que nos fue asignado el endpoint de álbum, primero observamos
                 que
                 tiene un método POST(información tomada de la documentación del manejo de la API) para traer el token
@@ -173,6 +175,8 @@
 
 
             <p class="mt-4 font-bold">Enviar una prompt a OpenAI Chat GPT</p>
+
+            <div class="code-block" data-file="fetchOpenAi.js"></div>
             <p>
                 La función toma una clave de autenticación y un mensaje de entrada opcional. Este mensaje se envía al
                 servidor
@@ -180,7 +184,7 @@
                 OpenAI, se procesa y devuelve una respuesta. La respuesta se extrae de la solicitud y se devuelve como
                 resultado
                 de la función. Esta función es para obtener fun facts.</p>
-
+              
 
 
             <p class="font-bold mt-4">Método GET:</p>
@@ -203,6 +207,7 @@
             <p class="mt-4">Ejemplo</p>
 
             <p class="mt-4 font-bold">Buscar un álbum en Spotify</p>
+            <div class="code-block" data-file="fetchAlbum.js"></div>
             Una vez que hayas obtenido el token, podrás completar los parámetros necesarios del método GET al incluir
             las
             credenciales exigidas por Spotify. Según la documentación, estas credenciales son el cliente_id y el
@@ -217,8 +222,7 @@
         </div>
     </footer>
     <div id="code-block-1"></div>
-    <div id="code-block-server"></div>
-    <div id="code-block-fetch"></div>
+
     <!-- <div class="flex h-screen p-5">
         <div class="group relative my-auto">
             <pre class="relative max-w-full overflow-hidden rounded-xl bg-slate-800 p-5 hover:overflow-scroll hover:ease-in-out"><code class=" text-slate-100">async function foo() {

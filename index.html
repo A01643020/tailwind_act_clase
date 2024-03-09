@@ -213,6 +213,34 @@
             credenciales exigidas por Spotify. Según la documentación, estas credenciales son el cliente_id y el
             client_secret.
             </p>
+
+            <br /><br />
+            
+            <h1 class="text-3xl font-bold pb-2">Utilización de otras APIs públicas</h1>
+            <p class="text-m">
+                En este caso es importante repasar y poder extraer los pasos clave para un consumo de API’s exitoso, 
+                los cuales podríamos definir así: <br /><br />
+            </p>
+            <ul class="list-disc ml-4"></ul>
+                <li>Revisa detenidamente la documentación, selecciona el endpoint que te 
+                dará como respuesta lo que buscas. </li>
+                <li>Investigar las características de la API que se va a emplear: 
+                Lo que devuelve, su método, si necesitamos un token o créditos para usarla más que x veces, etc.</li>
+                <li>Identifica los recursos que vas a necesitar (como el token) y mantenlos siempre 
+                de forma segura.</li>
+                <li>Asegúrate de hacer pruebas y verificar que te dé como respuesta lo que esperas.</li> 
+            </ul>
+            <p class="text-m">
+                Aquí hay un ejemplo de cómo usar la API que Giphy que nos da como respuesta un URL de un gif de perritos: 
+                <br /><br /> 
+                Una vez creada una cuenta de desarrollador, lo que buscamos es mostrar en nuestra página gifs de “perro”, 
+                lo cual se logra por medio de URL’s, pero para eso, es necesario realizar la búsqueda, es por esta razón 
+                que usaremos el endpoint de tipo “search”. <br /><br />
+                Observamos que en la documentación es obligatorio para que la API funcione, tener token y “p” el cual será la búsqueda. 
+                Después procedemos a rastrear el parámetro que estamos buscando y simplemente lo mandamos a llamar, y listo, 
+                tenemos la URL con de perritos.
+            </p>
+
         </div>
 
     </main>

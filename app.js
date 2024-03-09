@@ -18,6 +18,15 @@ function codeBlock(text, language=undefined) {
     );
 }
 
-// $(() => {
-//     $('div#code-block-1').append(codeBlock('console.log("Hello, World!")'));
-// });
+async function loadCodeBlock(file) {
+    let content = await (await fetch(file)).text();
+    let language = file.split('.').pop() === 'js' ? 'Javascript' : '';
+    return codeBlock(content, language);
+}
+
+$(() => {
+    $('div.code-block').each(async (i, el) => {
+        let file = $(el).data('file');
+        $(el).append(await loadCodeBlock(file));
+    });
+});
